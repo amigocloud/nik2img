@@ -17,7 +17,11 @@ class FontHandler(object):
         return [f for f in mapnik.FontEngine.face_names()]
 
     def add_fonts(self,fonts):
-        engine = mapnik.FontEngine.instance()
+        # Adding compatibility between old and new FontEngine API build
+        try:
+            engine = mapnik.FontEngine.instance()
+        except AttributeError:
+            engine = mapnik.FontEngine
         for font in fonts:
             if os.path.isdir(font):
                 found = False;
