@@ -4,7 +4,7 @@ version = '0.9.0'
 app = 'nik2img'
 description = 'A command line style renderer for the Mapnik C++/Python mapping toolkit'
 url = 'http://mapnik-utils.googlecode.com/'
-readme = file('README.txt','rb').read()
+readme = open('README.txt','rb').read()
 
 setup(name='%s' % app,
       version=version,

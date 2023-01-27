@@ -113,7 +113,7 @@ class Render(object):
         if sys.platform == 'win32':
             binaryPrint(self.stream())
         else:
-            print self.stream() 
+            print(self.stream() )
 
     def local_render_wrapper(self,*args):
         """
