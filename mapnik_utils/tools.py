@@ -6,7 +6,7 @@ def call(cmd,fail=False):
         response = Popen(cmd.split(' '),stdin=PIPE, stdout=PIPE, stderr=PIPE)
         cm = response.communicate()
         return cm[0]
-    except Exception, e:
+    except Exception as e:
         if fail:
             raise SystemExit(e)
         else:
@@ -19,9 +19,9 @@ def color_print(color, text, no_color=False):
     Prints a colored string of text.
     """
     if not os.name == 'nt' and not no_color:
-        print "\033[9%sm%s\033[0m" % (color,text)
+        print ("\033[9%sm%s\033[0m" % (color,text))
     else:
-        print text
+        print (text)
 
 def color_text(color, text, no_color=False):
     """

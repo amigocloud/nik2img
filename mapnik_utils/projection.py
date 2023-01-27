@@ -15,7 +15,7 @@ class EasyProjection(mapnik.Projection):
         self.method, self.proj = self.get_proj(self.srs)
         try:
             mapnik.Projection.__init__(self,self.proj)
-        except RuntimeError, E:
+        except (RuntimeError, Exception)
             proj = None
             if self.method == 'epsg srid':
                 sys.stderr.write('SRS not found locally checking http://spatialreference.org...\n')
@@ -32,7 +32,7 @@ class EasyProjection(mapnik.Projection):
                 mapnik.Projection.__init__(self,proj)
             else:
                 raise RuntimeError('Sorry, that projection was not found.\nMapnik error: "%s"' % E)
-    
+            
     @property
     def proj_obj(self):
         return mapnik.Projection(self.proj)

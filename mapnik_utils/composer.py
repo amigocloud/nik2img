@@ -312,7 +312,7 @@ class ComposeDebug(Compose):
                     self.debug_msg("Layer '%s' has %s active rule(s) in styles: %s" % (lyr.name,len(active_rules),active_styles))
                     active_filter_strings = ', '.join(["'%s'" % s['name'] or s['filter'] for s in active_rules]) 
                     if 'true' not in active_filter_strings:
-                        print 'Active rules: %s' % (active_filter_strings)
+                        print ('Active rules: %s' % (active_filter_strings))
                 else:
                     self.debug_msg("Layer '%s' is NOT visible" % lyr.name,warn=True)
         
@@ -365,7 +365,7 @@ class ComposeDebug(Compose):
         if self.trace_steps:
             if self.step_counter in self.trace_steps:
                 try:
-                    print ">>> Entering PDB interpreter (press 'c' to leave)"
+                    print (">>> Entering PDB interpreter (press 'c' to leave)")
                     set_trace()
                 except KeyboardInterrupt:
                     pass
